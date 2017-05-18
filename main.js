@@ -1,44 +1,34 @@
 
 $(document).ready(function() {
-  var b=16;
-  var c=b*b;
-  for (var a=0; a<c; a++) {
-    $('#container').append("<div class='box'></div>");
-    }
-
-    $('.box').on('mouseenter',function(){
-       $(this).addClass('trail');
-    });
-
+  var grid=16;
+  myFunction(grid);
+  makeSquare(grid);
 });
 
-
-function askGrid(){
-
-   $('.box,.inner').remove();
-
-  var grid=+prompt("How many squares per side would you like to make the new grid?",16);
-  var c=grid*grid;
-  for (var a=0; a<c; a++) {
-    $('#container').append("<div class='inner'></div>");
+// Create the divs
+function myFunction(grid){
+  for (var a=0; a<grid*grid; a++) {
+    $('#container').append("<div class='box'></div>");
     }
+};
 
-    room=640/(grid*1.1);
-    border=room*0.05;
+//make the divs appear as a grid, and with hover effect so it changes the color of the square when your mouse passes over it
+function makeSquare(grid){
+ var  square=640/(grid*1.1);
+  $('.box').css({
+  "width":square+"px",
+  "height":square+"px",
+  "border-width":square*0.05+"px",
+  })
+  $('.box').on('mouseenter',function(){
+    $(this).addClass('trail');
+  });
+};
 
-    $('.inner').css({
-    "width":room+"px",
-    "height":room+"px",
-    "border-width":border+"px",
-    "border-style":"solid",
-    "float":"left",
-    "margin":"0",
-    "border-color":"white"
-
-    })
-
-   $('.inner').on('mouseenter',function(){
-     $(this).addClass('trail');
-   });
-
+//give function for the button;clear grid, and ask user to input an number, use this number for the grid.
+function askGrid(){
+   $('.box').remove();
+  var grid=+prompt("How many squares per side would you like to make the new grid?",16);
+  myFunction(grid);
+  makeSquare(grid);
 };

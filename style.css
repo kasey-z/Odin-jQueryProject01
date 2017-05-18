@@ -21,21 +21,15 @@ font-size: 15px;
   height:640px;
   margin:100px auto;
   overflow: hidden;
-
 }
 
 .box{
-width: 36.3px;
-height: 36.3px;
-border-width: 1.8px;
-border-style:solid;
-float:left;
-margin:0;
-border-color:white;
-background-color:#deeff2;
+  background-color:#deeff2;
+  float:left;
+  border-style: solid;
+  border-color: white;
+  margin:0;
 }
-
-.inner{background-color:#deeff2;}
 
 .trail{
   background-color: #68c6dd;
